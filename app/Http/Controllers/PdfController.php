@@ -10,7 +10,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 class PdfController extends Controller
 {
 
-    public function pdfCertificateMpdf()
+    public function pdfCertificate()
     {
         $fontDirs = [public_path('fonts/')]; // เพิ่มไดเรกทอรีฟอนต์ที่คุณต้องการ
         $fontData = [
@@ -88,7 +88,6 @@ class PdfController extends Controller
             'date_start_en' => '11 September B.E. 2567 (2024)',
         ];
 
-        // $data_export = json_decode(json_encode($data_export));
         $data_export = collect($data_export);
         $mpdf->SetDefaultBodyCSS('background', "url('images/certificate01.png')");
         $mpdf->SetDefaultBodyCSS('background-image-resize', 6);
@@ -112,10 +111,10 @@ class PdfController extends Controller
         $title = "ใบรับรองห้องปฏิบัติการ".date('Ymd_hms').".pdf";  
         $mpdf->SetTitle($title);   
         $mpdf->Output($title, $type);                                                   
-        dd($footer);
+        // dd($footer);
     }
 
-    public function pdfCertificate()
+    public function pdfCertificate_notuse()
     {
         $data_export = [
             'app_no'             => "This is app no",

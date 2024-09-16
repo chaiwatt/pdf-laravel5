@@ -14,7 +14,4 @@ Route::get('/api', 'TestController@api');
 Route::get('/lab', 'TestController@lab');
 
 // Route::get('/pdf/certificate', 'PdfController@pdfCertificate');
-Route::get('/pdf/certificate-mpdf', 'PdfController@pdfCertificateMpdf');
-
-
-
+Route::get('/pdf/certificate', 'PdfController@pdfCertificate');
