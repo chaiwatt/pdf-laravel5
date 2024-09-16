@@ -21,7 +21,7 @@ class PdfController extends Controller
                 'BI' => "THSarabunNew-BoldItalic.ttf",
             ],
         ];
-// dd($fontDirs, $fontData);
+       // dd($fontDirs, $fontData);
         $type ='I';
         $mpdf = new Mpdf([
             'PDFA' 	=>  $type == 'F' ? true : false,
@@ -41,7 +41,7 @@ class PdfController extends Controller
             $mpdf->watermarkTextAlpha = 0.15;
         }
 
-        $url = 'https://www.google.com';
+        $url = 'https://www.npcsolutionandservice.com';
 
         $image_qr = QrCode::format('png')
                    ->merge('images/tisi.png', 0.2, true)
@@ -100,13 +100,14 @@ class PdfController extends Controller
         $sign_path = $sign_path = '<img    src="'.$image.'"  height="'.$height.'px" width="'.$width.'px">';;
         $sign_name = "(นายวีระศักดิ์ เพ้งหล้ง)";
         $sign_position = "ผู้อำนวยการสำนักงานคณะกรรมการการมาตรฐานแห่งชาติ";
-        $footer  = view('pdf/certificate-footer',[ 'image_qr'          => isset($image_qr) ? $image_qr : null,
-                                                                     'url'               => isset($url) ? $url : null,
-                                                                     'sign_path'         =>  $sign_path,
-                                                                     'sign_name'         =>  $sign_name,
-                                                                     'sign_position'     =>  $sign_position,
-                                                                     'sign_instead'      =>  0
-                                                                  ]);
+        $footer  = view('pdf/certificate-footer',[ 
+                            'image_qr' => $image_qr ,
+                            'url' => $url,
+                            'sign_path' =>  $sign_path,
+                            'sign_name' =>  $sign_name,
+                            'sign_position' =>  $sign_position,
+                            'sign_instead' =>  0
+                        ]);
         $mpdf->SetHTMLFooter($footer);    
         $title = "ใบรับรองห้องปฏิบัติการ".date('Ymd_hms').".pdf";  
         $mpdf->SetTitle($title);   
