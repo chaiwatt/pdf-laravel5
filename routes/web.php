@@ -13,5 +13,6 @@ Route::get('/api', 'TestController@api');
 
 Route::get('/lab', 'TestController@lab');
 
-// Route::get('/pdf/certificate', 'PdfController@pdfCertificate');
-Route::get('/pdf/certificate', 'PdfController@pdfCertificate')->name('pdf.certificate');
+
+Route::get('/pdf/certificate/{type}', 'PdfController@pdfCertificate')->name('pdf.certificate');
+Route::get('/pdf/sign-certificate', 'PdfController@signCertificate')->name('pdf.sign-certificate');

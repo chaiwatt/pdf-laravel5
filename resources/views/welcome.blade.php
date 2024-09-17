@@ -79,7 +79,10 @@
 
             <div class="content">
                 <div class="links">
-                    <a href="{{route('pdf.certificate')}}">Certificate</a>
+                    <a href="{{route('pdf.certificate',['type' => 'I'])}}">Certificate (Draft)</a>
+                        <br>
+                        <br>
+                    <a href="{{route('pdf.certificate',['type' => 'F'])}}">Certificate (Sign)</a>
                 </div>
             </div>
         </div>
