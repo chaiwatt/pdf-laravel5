@@ -30,7 +30,6 @@ class PdfController extends Controller
         if(!empty($datas->SignatureID)){
     
             $file_path = $data_pdf->path . '/' . $datas->Certificate_newfile;
-            // dd($file_path);
             // $file = file_get_contents($file_path);
             
             // เปลี่ยนจาก Storage::put เป็น Storage::disk('public')->put
@@ -42,8 +41,6 @@ class PdfController extends Controller
         
             dd($data_pdf, $datas, $object);
         }
-
-       
     }
 
     public function getRegister($file ='' ,$type ='' ,$certificate_no = '',$attach_path='uploads')
@@ -73,30 +70,23 @@ class PdfController extends Controller
             'Bottom' 	    => '75'
             );
 
- 
-// dd($token);
-        //   dd($TemplateID,$url, $token, $postArray,$apiurl);
+
           $json 	                        = $this->callServicePUT($apiurl, $config['digital_signing_consumer_key'], $token, $postArray);
           $data 	                        = json_decode($json);
           $object 					    = (object)[]; 
           $object->DocumentID 			= $data->DocumentID;
           $organization 					= $this->getOrganization($data->DocumentID, $config['digital_signing_consumer_key'] ,$token);
-        //   dd($organization);
 
           if(!empty($organization->SignatureID)){
             $object->SignatureID 			=  $organization->SignatureID   ;
 
             $file_name 					    =   $this->getDownlaodPDFigned($data->DocumentID , $config['digital_signing_consumer_key'], $token,$certificate_no,$attach_path);
 
-           
-
+        
             $object->Certificate_newfile 	= !empty($file_name) ? $file_name : null  ;
-
-
 
         }
 
-        // dd($object);
 		return  $object;
           
     }
@@ -244,11 +234,9 @@ class PdfController extends Controller
 
                  }
                }  
-            //    dd($object);
                return $object;
         } 
-                                                         
-        // dd($footer);
+                                                        
     }
 
     public function createConfigCollection()
@@ -343,253 +331,225 @@ class PdfController extends Controller
     }
 
 
-    //คำนวนขนาดฟอนต์ของชื่อหน่วยงานผู้ได้รับรอง
-    public function CalFontSize($certificate_for){
 
-            $alphas = array_combine(range('A', 'Z'), range('a', 'z'));
-            $thais = array('ก','ข', 'ฃ', 'ค', 'ฅ', 'ฆ','ง','จ','ฉ','ช','ซ','ฌ','ญ', 'ฎ', 'ฏ', 'ฐ','ฑ','ฒ'
-    ,'ณ','ด','ต','ถ','ท','ธ','น','บ','ป','ผ','ฝ','พ','ฟ','ภ','ม','ย','ร','ล'
-    ,'ว','ศ','ษ','ส','ห','ฬ','อ','ฮ', 'ำ', 'า', 'แ');
-    
-            if(function_exists('mb_str_split')){
-              $chars = mb_str_split($certificate_for);
-            }else if(function_exists('preg_split')){
-              $chars = preg_split('/(?<!^)(?!$)/u', $certificate_for);
+    public static  function getToken($ConsumerKey, $ConsumerSecret, $AgentID ,$api_token)
+    {
+        try {
+            $ch = curl_init();
+            $headers = array();
+            $headers[] = 'Content-Type:application/json'; // set content type
+            $headers[] = 'Consumer-Key:' . $ConsumerKey; // set consumer key replace %s
+            // set request url
+            curl_setopt($ch, CURLOPT_URL, $api_token."ConsumerSecret=" . $ConsumerSecret . "&AgentID=" . $AgentID); // set ConsumerSecret and AgentID
+            // set header
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            // return header when response
+            curl_setopt($ch, CURLOPT_HEADER, true);
+
+            // return the response
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            // send the request and store the response to $data
+            $data = curl_exec($ch);
+            // get httpcode 
+            $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+            if ($httpcode == 200) { // if response ok
+                // separate header and body
+                $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+                $header = substr($data, 0, $header_size);
+                $body = substr($data, $header_size);
+
+                // convert json to array or object
+                $result = json_decode($body);
+
+                // access to token value
+                $token = $result->Result;
+            } else {
+                $token = "No Found Token";
             }
-    
-            $i = 0;
-            foreach ($chars as $char) {
-                if(in_array($char, $alphas) || in_array($char, $thais)){
-                    $i++;
-                }
-            }
-    
-            if($i>40){
-                $font = 15;
-            }else{
-                $font = 18;
-            }
-    
-            return $font;
-    
+            // end session
+
+            return $token;
+        } catch (Exception $ex) {
+            return $ex->getMessage();
         }
+        curl_close($ch);
+    }
 
-        public static  function getToken($ConsumerKey, $ConsumerSecret, $AgentID ,$api_token)
-        {
-            try {
-                $ch = curl_init();
-                $headers = array();
-                $headers[] = 'Content-Type:application/json'; // set content type
-                $headers[] = 'Consumer-Key:' . $ConsumerKey; // set consumer key replace %s
-                // set request url
-                curl_setopt($ch, CURLOPT_URL, $api_token."ConsumerSecret=" . $ConsumerSecret . "&AgentID=" . $AgentID); // set ConsumerSecret and AgentID
-                // set header
-                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-                // return header when response
-                curl_setopt($ch, CURLOPT_HEADER, true);
-    
-                // return the response
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    
-                // send the request and store the response to $data
-                $data = curl_exec($ch);
-                // get httpcode 
-                $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    
-                if ($httpcode == 200) { // if response ok
-                    // separate header and body
-                    $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
-                    $header = substr($data, 0, $header_size);
-                    $body = substr($data, $header_size);
-    
-                    // convert json to array or object
-                    $result = json_decode($body);
-    
-                    // access to token value
-                    $token = $result->Result;
-                } else {
-                    $token = "No Found Token";
-                }
-                // end session
-    
-                return $token;
-            } catch (Exception $ex) {
-                return $ex->getMessage();
+    public static function callServicePUT($URL, $ConsumerKey, $Token, $postArr)
+    {
+        $ch = curl_init();
+        try {
+            $headers = array();
+            $headers[] = 'Content-Type:multipart/form-data;'; // set content type
+            $headers[] = 'Consumer-Key:' . $ConsumerKey; // set consumer key replace %s
+            $headers[] = 'Token:' . $Token; // set access token replace %s
+            // set request url
+            curl_setopt($ch, CURLOPT_URL, $URL); // set CitizenID replace %s
+            // set header
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            // return header when response
+            curl_setopt($ch, CURLOPT_HEADER, true);
+            curl_setopt($ch, CURLOPT_VERBOSE, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            // return the response
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt( $ch, CURLOPT_POSTFIELDS, $postArr);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+            
+            
+            // send the request and store the response to $data
+            $data = curl_exec($ch);
+            $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            if ($httpcode == 200) { // if response ok
+                // separate header and body
+                $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+                $header = substr($data, 0, $header_size);
+                $body = substr($data, $header_size);
+            } else {
+                $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+                $header = substr($data, 0, $header_size);
+                $body = substr($data, $header_size);
             }
+            // end session
+            return $body;
             curl_close($ch);
+        } catch (Exception $ex) {
+            return $ex->getMessage();
         }
+    }
 
-        public static function callServicePUT($URL, $ConsumerKey, $Token, $postArr)
-        {
-            $ch = curl_init();
-            try {
-                $headers = array();
-                $headers[] = 'Content-Type:multipart/form-data;'; // set content type
-                $headers[] = 'Consumer-Key:' . $ConsumerKey; // set consumer key replace %s
-                $headers[] = 'Token:' . $Token; // set access token replace %s
-                // set request url
-                curl_setopt($ch, CURLOPT_URL, $URL); // set CitizenID replace %s
-                // set header
-                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-                // return header when response
-                curl_setopt($ch, CURLOPT_HEADER, true);
-                curl_setopt($ch, CURLOPT_VERBOSE, true);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-                // return the response
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                curl_setopt($ch, CURLOPT_POST, 1);
-                curl_setopt( $ch, CURLOPT_POSTFIELDS, $postArr);
-                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-                
-                
-                // send the request and store the response to $data
-                $data = curl_exec($ch);
-                $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-                if ($httpcode == 200) { // if response ok
-                    // separate header and body
-                    $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
-                    $header = substr($data, 0, $header_size);
-                    $body = substr($data, $header_size);
-                } else {
-                    $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
-                    $header = substr($data, 0, $header_size);
-                    $body = substr($data, $header_size);
-                }
-                // end session
-                return $body;
-                curl_close($ch);
-            } catch (Exception $ex) {
-                return $ex->getMessage();
+
+    public static  function callServicePOST($URL, $ConsumerKey, $Token, $postdata, $file)
+    {
+        $ch = curl_init();
+        try {
+            $headers = array();
+            $headers[] = 'Content-Type:application/json'; // set content type
+            $headers[] = 'Consumer-Key:' . $ConsumerKey; // set consumer key replace %s
+            $headers[] = 'Token:' . $Token; // set access token replace %s
+            // set request url
+            curl_setopt($ch, CURLOPT_URL, $URL); // set CitizenID replace %s
+            // set header
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            // return header when response
+            curl_setopt($ch, CURLOPT_HEADER, true);
+            //curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+            //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            // return the response
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            //POST Method
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata);
+            // send the request and store the response to $data
+            $data = curl_exec($ch);
+            //echo $data;
+            // get httpcode 
+            $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            //echo $httpcode;exit();
+            if ($httpcode == 200) { // if response ok
+                // separate header and body
+                $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+                $header = substr($data, 0, $header_size);
+                $body = substr($data, $header_size);
+            } else {
+                $body = "";
             }
+            // end session
+            return $body;
+            curl_close($ch);
+        } catch (Exception $ex) {
+            return $ex->getMessage();
         }
-  
-  
-        public static  function callServicePOST($URL, $ConsumerKey, $Token, $postdata, $file)
-        {
-            $ch = curl_init();
-            try {
-                $headers = array();
-                $headers[] = 'Content-Type:application/json'; // set content type
-                $headers[] = 'Consumer-Key:' . $ConsumerKey; // set consumer key replace %s
-                $headers[] = 'Token:' . $Token; // set access token replace %s
-                // set request url
-                curl_setopt($ch, CURLOPT_URL, $URL); // set CitizenID replace %s
-                // set header
-                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-                // return header when response
-                curl_setopt($ch, CURLOPT_HEADER, true);
-                //curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-                //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-                // return the response
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                //POST Method
-                curl_setopt($ch, CURLOPT_POST, 1);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata);
-                // send the request and store the response to $data
-                $data = curl_exec($ch);
-                //echo $data;
-                // get httpcode 
-                $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-                //echo $httpcode;exit();
-                if ($httpcode == 200) { // if response ok
-                    // separate header and body
-                    $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
-                    $header = substr($data, 0, $header_size);
-                    $body = substr($data, $header_size);
-                } else {
-                    $body = "";
-                }
-                // end session
-                return $body;
-                curl_close($ch);
-            } catch (Exception $ex) {
-                return $ex->getMessage();
+    }
+
+    public function getOrganization($DocumentID,$ConsumerKey,$token)
+    {
+
+        // header("Access-Control-Allow-Origin: *");
+        // header("Content-Type: application/json; charset=UTF-8");
+        // header("Access-Control-Allow-Methods: POST");
+        // header("Access-Control-Max-Age: 3600");
+        // header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+        $configResponse = $this->configResponse;
+        $config = $configResponse->getData(true);
+
+        $apiurl 		 =  $config['digital_signing_api_esgnatures']; 
+    
+        try {
+            
+                $postdata = array(
+                                    'DocumentID'		=> $DocumentID,
+                                    'Signature'		=>  array('Page'=>'1','Left'=>'100','Bottom'=>'80','Width'=>'140','Height'=>'60','Image'=>null)
+                                    );   
+    
+            $postdata=json_encode($postdata,true);
+            if (!isset($postdata) || empty($postdata)) {
+                throw new Exception("File Size Zero.");
+            } else {  
+
+                $json 			=  self::callServicePOST($apiurl, $ConsumerKey, $token,$postdata,null);
+        
+                $data 			= json_decode($json);
+            
+                $object 			= (object)[]; 
+                $object->SignatureID 	=  $data->SignatureID;
+                return  $object;
+    
             }
+        } catch (Exception $ex) {
+            $object 					= (object)[]; 
+            $object->Message 			=  $ex->getMessage();
+            return  $object;
         }
+    }
 
-        public function getOrganization($DocumentID,$ConsumerKey,$token){
+    public function getDownlaodPDFigned($DocumentID,$ConsumerKey,$token,$certificate_no,$attach_path)
+    {
+        try {
 
-            // header("Access-Control-Allow-Origin: *");
-            // header("Content-Type: application/json; charset=UTF-8");
-            // header("Access-Control-Allow-Methods: POST");
-            // header("Access-Control-Max-Age: 3600");
-            // header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
             $configResponse = $this->configResponse;
             $config = $configResponse->getData(true);
+            
+            $api_downlaod_signed 	=  $config['digital_signing_api_download_signed'];
+            // dd($api_downlaod_signed);
+            $apiurl 	            = $api_downlaod_signed."DocumentID=".$DocumentID;
+    
+            // Create a stream
+            $opts  = array( 
+                'http'=>array(
+                'method'=>'GET',
+                'header'=> "Consumer-Key: ".$ConsumerKey."\r\n"
+                    . "Token: ".$token."\r\n"
+                ),
+            );
+            $context 	= stream_context_create($opts);
+            $file 	= file_get_contents($apiurl, false, $context);
+    
+    
 
-            $apiurl 		 =  $config['digital_signing_api_esgnatures']; 
-        
-            try {
-              
-                    $postdata = array(
-                                        'DocumentID'		=> $DocumentID,
-                                        'Signature'		=>  array('Page'=>'1','Left'=>'100','Bottom'=>'80','Width'=>'140','Height'=>'60','Image'=>null)
-                                     );   
-     
-             $postdata=json_encode($postdata,true);
-             if (!isset($postdata) || empty($postdata)) {
-                  throw new Exception("File Size Zero.");
-              } else {  
+            $certificate_no = str_replace("	", "", $certificate_no);
+            $certificate_no = str_replace(" ", "", $certificate_no);
+            $certificate_no = str_replace(":", "_", $certificate_no);
+            $certificate_no = str_replace(')', '_', $certificate_no);
+            $certificate_no = str_replace('/', '_', $certificate_no);
+            $certificate_no = str_replace('-', '_', $certificate_no);
+            $file_name 	=   $certificate_no.'_'.date('Ymd_hms').'.pdf';
+            // dd($attach_path);
+            // put file pdf
+            (file_put_contents($attach_path.'/'.$file_name,$file, FILE_APPEND));
+            //   Storage::put($search_path.'/'.$file_name, $file);
+            return 	$file_name;
     
-                  $json 			=  self::callServicePOST($apiurl, $ConsumerKey, $token,$postdata,null);
-         
-                  $data 			= json_decode($json);
-             
-                  $object 			= (object)[]; 
-                  $object->SignatureID 	=  $data->SignatureID;
-                  return  $object;
-     
-                }
-            } catch (Exception $ex) {
-                $object 					= (object)[]; 
-                $object->Message 			=  $ex->getMessage();
-                return  $object;
-           }
+        
+        } catch (Exception $ex) {
+            $object 					= (object)[]; 
+            $object->Message 			=  $ex->getMessage();
+            return  $object;
         }
-
-        public function getDownlaodPDFigned($DocumentID,$ConsumerKey,$token,$certificate_no,$attach_path){
-            try {
-    
-                $configResponse = $this->configResponse;
-                $config = $configResponse->getData(true);
-                
-                $api_downlaod_signed 	=  $config['digital_signing_api_download_signed'];
-                // dd($api_downlaod_signed);
-                $apiurl 	            = $api_downlaod_signed."DocumentID=".$DocumentID;
-        
-                // Create a stream
-                $opts  = array( 
-                  'http'=>array(
-                 'method'=>'GET',
-                 'header'=> "Consumer-Key: ".$ConsumerKey."\r\n"
-                        . "Token: ".$token."\r\n"
-                  ),
-                );
-                $context 	= stream_context_create($opts);
-                $file 	= file_get_contents($apiurl, false, $context);
-        
-     
-    
-                $certificate_no = str_replace("	", "", $certificate_no);
-                $certificate_no = str_replace(" ", "", $certificate_no);
-                $certificate_no = str_replace(":", "_", $certificate_no);
-                $certificate_no = str_replace(')', '_', $certificate_no);
-                $certificate_no = str_replace('/', '_', $certificate_no);
-                $certificate_no = str_replace('-', '_', $certificate_no);
-                $file_name 	=   $certificate_no.'_'.date('Ymd_hms').'.pdf';
-                // dd($attach_path);
-                // put file pdf
-                (file_put_contents($attach_path.'/'.$file_name,$file, FILE_APPEND));
-                //   Storage::put($search_path.'/'.$file_name, $file);
-                return 	$file_name;
-     
-         
-            } catch (Exception $ex) {
-                $object 					= (object)[]; 
-                $object->Message 			=  $ex->getMessage();
-                return  $object;
-           }
-        }
+    }
   
 }

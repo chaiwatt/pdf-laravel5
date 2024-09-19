@@ -18,7 +18,6 @@
         height: 100%;
         top: 10%;
         position: relative;
-
     }
 
     .tc{
@@ -174,7 +173,7 @@
 
 <tr>
     <td align="center"  class="font-18" style="padding-top: -20px;">
-            <b>อาศัยอำนาจตามความในพระราชบัญญัติการมาตรฐานแห่งชาติ พ.ศ. ๒๕๕๑ </b> 
+            <b>อาศัยอำนาจตามความในพระราชบัญญัติการมาตรฐานแห่งชาติ พ.ศ. {{ \App\Helpers\HP::toThaiNumber('2551') }} </b> 
     </td>
 </tr>
 <tr>
@@ -257,7 +256,7 @@
 @foreach ($address_ths as $address)
      <tr>
         <td align="center" class="line-height25  {{ $address['font'] }}"  >
-            {!!  $address['title'] !!}  
+            {!!  \App\Helpers\HP::toThaiNumber($address['title']) !!}  
         </td>
     </tr>
 @endforeach
@@ -288,7 +287,7 @@
 </tr>
 <tr>
     <td   align="center" class="font-16"  style="padding-top: -25px;"   >
-          ตามมาตรฐานเลขที่&nbsp;&nbsp;&nbsp;{!! $formula    !!} 
+          ตามมาตรฐานเลขที่&nbsp;&nbsp;&nbsp;{!!  \App\Helpers\HP::toThaiNumber($formula) !!}  
     </td>
 </tr>
 <tr>
@@ -351,7 +350,7 @@
     if(is_null($date_start) ||  empty($date_start) ){
         $date_start ='';
     }else{
-        $date_start = $date_start ;
+        $date_start = \App\Helpers\HP::toThaiNumber( \App\Helpers\HP::formatDateThaiFullPoint($date_start) );
     }
 @endphp 
 <tr>

@@ -82,7 +82,7 @@
                     <a href="{{route('pdf.certificate',['type' => 'I'])}}">Certificate (Draft)</a>
                         <br>
                         <br>
-                    <a href="{{route('pdf.certificate',['type' => 'F'])}}">Certificate (Sign)</a>
+                    <a href="{{route('pdf.sign-certificate')}}">Certificate (Sign)</a>
                 </div>
             </div>
         </div>
