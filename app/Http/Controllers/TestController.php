@@ -31,4 +31,20 @@ class TestController extends Controller
         $tisiLabs = TisiLab::find(7)->ssoUser;
         dd($tisiLabs);
     }
+
+    public function splitText()
+    {
+        require_once (base_path('/vendor/notyes/thsplitlib/THSplitLib/segment.php'));
+        $segment = new \Segment(); 
+        $body = 'หาดทรายละเอียดสีขาว ตัดกับท้องฟ้าและน้ำทะเลสีครามใส คือบรรยากาศของท้องทะเลไทยในช่วงของการแพร่ระบาดไวรัสโควิด-19 ส่งผลให้ประเทศไทยมีการประกาศพ.ร.ก.ฉุกเฉินและปิดบริการสถานที่ท่องเที่ยวทางธรรมชาติทั่วประเทศเสมือนกำลังสร้างความสมดุลของ ระบบนิเวศให้กลับคืนสู่ธรรมชาติอีกครั้ง'; 
+        $words = $segment->get_segment_array($body); 
+        $text = implode("|",$words);
+        dd($text);
+    }
+
+    public static function FixBreak($text){
+        require_once (base_path('/vendor/notyes/thsplitlib/THSplitLib/segment.php'));
+        $segment = new \Segment();
+        return $segment->get_segment_array($text);
+    } 
 }

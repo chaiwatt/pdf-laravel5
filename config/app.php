@@ -214,6 +214,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class,
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+        'TextHelper' => \App\Helpers\TextHelper::class,
 
     ],
 

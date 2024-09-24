@@ -13,6 +13,8 @@ Route::get('/api', 'TestController@api');
 
 Route::get('/lab', 'TestController@lab');
 
+Route::get('/split-text', 'TestController@splitText');
+
 
 Route::get('/pdf/certificate/{type}', 'PdfController@pdfCertificate')->name('pdf.certificate');
 Route::get('/pdf/sign-certificate', 'PdfController@signCertificate')->name('pdf.sign-certificate');
@@ -21,6 +23,14 @@ Route::get('/pdf/notification-note', 'Bis50Controller@notificationNote')->name('
 Route::get('/pdf/scope', 'Bis50Controller@scope')->name('pdf.scope');
 
 Route::get('/pdf/create-callab-scope', 'Bis50Controller@createCalLabScope')->name('pdf.create-callab-scope');
+Route::get('/pdf/add-sign', 'Bis50Controller@addSign')->name('pdf.add-sign');
+Route::get('/pdf/add-sign-verify', 'Bis50Controller@addSignVerify')->name('pdf.add-sign-verify');
+
+Route::get('/pdf/labreport', 'LabReportController@labreport')->name('pdf.labreport');
+
+Route::get('/gen-word', 'LabReportController@genWord')->name('gen-word');
+
+
 
 
 

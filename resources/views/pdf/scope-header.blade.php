@@ -8,15 +8,24 @@
 
     <div class="lab-header">
         <div class="main">
-            <div class="inline-block  w-100 text-center float-left" ><span class="title">รายละเอียดสาขาและขอบข่ายใบรับรองห้องปฏิบัติการ </span> <br>
-                <span class="title_en"> (Scope of Accreditation for Calibration)</span>
+            <div class="inline-block  w-100 text-center float-left" >
+                <span class="title">รายละเอียดสาขาและขอบข่ายใบรับรองห้องปฏิบัติการ </span>
+                 <br>
+                 <span class="title_en"> (Scope of Accreditation for Calibration)</span>
+                
                 <br>
-                <span class="cer_no">ใบรับรองเลขที่ 22-LB0083</span><br>
-                <span class="cer_no_en">(Certification no. 22-LB0083)</span>
+                <div style="display: inline-block; height:5px"></div>
+                <span class="cer_no" style="line-height: 5px !important; ">ใบรับรองเลขที่ 22-LB0083
+
+                </span>
+                <br>
+                    <span class="cer_no_en">(Certification no. 22-LB0083)</span>
+                
+                
             </div>
         </div>
     
-        <div class="info" style="margin-top: 5px">
+        <div class="info" style="margin-top: 7px">
             <div class="inline-block w-20 p-0 float-left">ชื่อห้องปฏิบัติการ <br> <span>(Laboratoy Name)</span> </div>
             <div class="inline-block w-78 float-left">บริษัท ครีเอทีฟ โพลิเมอร์ส จำกัด <br> <span>(Creative Polymers Ltd.)</span></div>
         </div>
@@ -74,13 +83,12 @@
                 <tr>
                     <td style="border: 0.5px solid #000;width:15%;font-size: 22px;">
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                        <br><br><br><br><br><br><br><br><br><br>
+                        <br><br><br><br><br><br><br><br><br>
                     </td>
                     <td style="border: 0.5px solid #000;width:15%;font-size: 22px;"></td>
                     <td style="border: 0.5px solid #000;width:15%;font-size: 22px;"></td>
                     <td style="border: 0.5px solid #000;width:15%;font-size: 22px;"></td>
                 </tr>
-               
             </tbody>
         </table>
     </div>

@@ -71,6 +71,7 @@ class PdfController extends Controller
             );
 
 
+
           $json 	                        = $this->callServicePUT($apiurl, $config['digital_signing_consumer_key'], $token, $postArray);
           $data 	                        = json_decode($json);
           $object 					    = (object)[]; 
