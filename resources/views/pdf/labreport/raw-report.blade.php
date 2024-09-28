@@ -1,8 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+  
+        {{-- <link href="{{asset('css/report/lab-report.css')}}" rel="stylesheet" type="text/css"> --}}
+     
+</head>
 <body>
     <div class="lab-header">
         <div class="request_no" style="height: 35px;font-weight:bold" >
             <div class="inline-block w-45 p-0 float-left" > 
-                <div style="display:block; width: 200px;height: 28px;float:left;line-height:28px;text-align:center;">
+                <div style="display:block; width: 220px;height: 28px;float:left;line-height:28px;text-align:center;">
                     คำขอเลขที่ ........................... 
                 </div>
             </div>
@@ -38,9 +50,9 @@
 
     <div class="topic_two">
         <div style="margin-top: 10px;font-weight:bold">2. การตรวจประเมิน</div>
-        <div style="margin-left: 15px">
+        <div style="margin-left: 15px ;display: block">
             <div><span>2.1 คณะผู้ตรวจประเมิน ประกอบด้วย :</span> </div>
-            <div style="margin-left:20px"> 
+            <div style="margin-left:20px;display: block"> 
                 <div >
                     <div style="display: inline-block; width:35%; float:left">1. นางสาวรัชชา พุทธิมัย</div>
                     <div style="display: inline-block; width:60%; float:left">หัวหน้าคณะผู้ตรวจประเมิน    สมอ.</div>
@@ -52,7 +64,7 @@
             </div>  
         </div>
 
-        <div style="margin-left: 15px">
+        <div style="margin-left: 15px ;display: block;margin-top:50px">
             <div><span>2.2 รูปแบบการตรวจประเมิน :</span> </div>
             <div style="margin-left:20px"> 
                 <div >
@@ -112,7 +124,7 @@
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">{!! TextHelper::splitText('มีการประเมินความเสี่ยงต่อความเป็นกลางครอบคลุมถึงความเสี่ยงที่เกิดขึ้นจากกิจกรรมของห้องปฏิบัติการและความเสี่ยงเรื่องความสัมพันธ์ตามขอบเขตหน้าที่ความรับผิดชอบของบุคลากร แต่ละตำแหน่งและความสัมพันธ์ในระดับบุคคล สำหรับกิจกรรมต่างๆ ของห้องปฏิบัติการ') !!}</div>
+                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">มีการประเมินความเสี่ยงต่อความเป็นกลางครอบคลุมถึงความเสี่ยงที่เกิดขึ้นจากกิจกรรมของห้องปฏิบัติการและความเสี่ยงเรื่องความสัมพันธ์ตามขอบเขตหน้าที่ความรับผิดชอบของบุคลากร แต่ละตำแหน่งและความสัมพันธ์ในระดับบุคคล สำหรับกิจกรรมต่างๆ ของห้องปฏิบัติการ</div>
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
@@ -139,11 +151,11 @@
                 <div style="display: inline-block;margin-left:22px; width:100%; float:left">
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">{!! TextHelper::splitText('มีกรรมการผู้จัดการเป็นผู้บริหารสูงสุดของห้องบฏิบัติการและมีการมอบหมายบุคลากรเพื่อ ปฏิบัติงานเฉพาะของห้องปฏิบัติการ') !!}</div>
+                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">มีกรรมการผู้จัดการเป็นผู้บริหารสูงสุดของห้องบฏิบัติการและมีการมอบหมายบุคลากรเพื่อ ปฏิบัติงานเฉพาะของห้องปฏิบัติการ</div>
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">{!! TextHelper::splitText('มีการระบุความรับผิดชอบ อำนาจหน้าที่ ความสัมพันธ์ของบุคลากรในห้องปฏิบัติการ ใน Job Description ของแต่ละตำแหน่งงานมีการสื่อสารถึงประสิทธิผลของการปฏิบัติงานผ่านการประชุม ทบทวนการบริหารงานการประชาสัมพันธ์อื่นๆ') !!}</div>
+                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">มีการระบุความรับผิดชอบ อำนาจหน้าที่ ความสัมพันธ์ของบุคลากรในห้องปฏิบัติการ ใน Job Description ของแต่ละตำแหน่งงานมีการสื่อสารถึงประสิทธิผลของการปฏิบัติงานผ่านการประชุม ทบทวนการบริหารงานการประชาสัมพันธ์อื่นๆ</div>
                     </div>
                 </div>
             </div>  
@@ -166,25 +178,25 @@
                 <div style="display: inline-block;margin-left:22px; width:100%; float:left">
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">{!! TextHelper::splitText('มีการกำหนดคุณสมบัติ หน้าที่ความรับผิดชอบของบุคลากรเพื่อให้มั่นใจว่ามีความสามารถ ในการใช้เครื่องมือดำเนินการทดสอบ ควบคุมงาน ประเมินผล ทบทวนและอนุมัติผล การทดสอบ /สอบเทียบได้อย่างถูกต้อง') !!}</div>
+                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">มีการกำหนดคุณสมบัติ หน้าที่ความรับผิดชอบของบุคลากรเพื่อให้มั่นใจว่ามีความสามารถ ในการใช้เครื่องมือดำเนินการทดสอบ ควบคุมงาน ประเมินผล ทบทวนและอนุมัติผล การทดสอบ /สอบเทียบได้อย่างถูกต้อง</div>
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
                         <div style="display: inline-block; float:left; width:95%; margin-left:5px; white-space: normal;">
-                            {!! TextHelper::splitText('มีการมอบหมายบุคลากรเพื่อปฏิบัติงานเฉพาะต่าง ๆ ของห้องปฏิบัติการอย่างเหมาะสมรวมถึง บุคลากรที่ระบุการเป็นไปตามข้อกำหนด (ถ้ามี)') !!}
+                            มีการมอบหมายบุคลากรเพื่อปฏิบัติงานเฉพาะต่าง ๆ ของห้องปฏิบัติการอย่างเหมาะสมรวมถึง บุคลากรที่ระบุการเป็นไปตามข้อกำหนด (ถ้ามี)
                         </div>                                        
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">{!! TextHelper::splitText('มีการกำหนดความจำเป็นในการฝึกอบรมของแต่ละตำแหน่งงานใน training Need และมีการจัดเก็บบันทึกการประเมินผลการฝึกอบรม') !!}</div>
+                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">มีการกำหนดความจำเป็นในการฝึกอบรมของแต่ละตำแหน่งงานใน training Need และมีการจัดเก็บบันทึกการประเมินผลการฝึกอบรม</div>
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">{!! TextHelper::splitText('มีการจัดการสิ่งอำนวยความสะดวกและควบคุมสภาวะแวดล้อมห้องปฏิบัติการได้อย่างเหมาะสม') !!}</div>
+                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">มีการจัดการสิ่งอำนวยความสะดวกและควบคุมสภาวะแวดล้อมห้องปฏิบัติการได้อย่างเหมาะสม</div>
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">{!! TextHelper::splitText('มีการควบคุมการใช้เครื่องมือบำรุงรักษา สอบเทียบ และทวนสอบเครื่องมือที่มีผลกระทบต่อผลการ ทดสอบ/สอบเทียบ ตามขอบข่ายที่ขอรับการรับรอง และมีการระบุสถานะการสอบเทียบเครื่องมือชัดเจน') !!}</div>
+                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">มีการควบคุมการใช้เครื่องมือบำรุงรักษา สอบเทียบ และทวนสอบเครื่องมือที่มีผลกระทบต่อผลการ ทดสอบ/สอบเทียบ ตามขอบข่ายที่ขอรับการรับรอง และมีการระบุสถานะการสอบเทียบเครื่องมือชัดเจน</div>
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
@@ -222,23 +234,23 @@
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">{!! TextHelper::splitText('มีขั้นตอนการดำเนินงานทบทวนคำขอ และสัญญาของห้องปฏิบัติการ สามารถตอบสนองความต้องการ ของลูกค้าและเพื่อให้เกิดความเข้าใจตรงกัน ในเรื่องของข้อกำหนดต่างๆ ขีดความสามารถและทรัพยากร ที่เพียงพอต่อการปฏิบัติงาน และวิธีทดสอบ/สอบเทียบ รวมถึงเมื่อมีการเปลี่ยนแปลงหรือเบี่ยงเบนจากที่ ลูกค้าร้องขอ จะดำเนินการแจ้งลูกค้าทราบทันที') !!}</div>
+                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">มีขั้นตอนการดำเนินงานทบทวนคำขอ และสัญญาของห้องปฏิบัติการ สามารถตอบสนองความต้องการ ของลูกค้าและเพื่อให้เกิดความเข้าใจตรงกัน ในเรื่องของข้อกำหนดต่างๆ ขีดความสามารถและทรัพยากร ที่เพียงพอต่อการปฏิบัติงาน และวิธีทดสอบ/สอบเทียบ รวมถึงเมื่อมีการเปลี่ยนแปลงหรือเบี่ยงเบนจากที่ ลูกค้าร้องขอ จะดำเนินการแจ้งลูกค้าทราบทันที</div>
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">{!! TextHelper::splitText('มีขั้นตอนการดำเนินงานสำหรับการเลือก การทวนสอบและการตรวจสอบ ความใช้ได้ของวิธีที่เหมาะสมและเป็นไปตามข้อกำหนด') !!}</div>
+                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">มีขั้นตอนการดำเนินงานสำหรับการเลือก การทวนสอบและการตรวจสอบ ความใช้ได้ของวิธีที่เหมาะสมและเป็นไปตามข้อกำหนด</div>
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">{!! TextHelper::splitText('มีขั้นตอนการดำเนินงานการจัดการตัวอย่าง เพื่อควบคุมการขนส่ง รับ จัดการ ป้องกัน เก็บรักษา ส่งคืนตัวอย่าง รวมทั้งมีระบบความสมบูรณ์ของตัวอย่าง ตลอดช่วงเวลาที่อยู่ในการทดสอบ มีการบันทึกลักษณะของตัวอย่างก่อนการทดสอบ') !!}</div>
+                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">มีขั้นตอนการดำเนินงานการจัดการตัวอย่าง เพื่อควบคุมการขนส่ง รับ จัดการ ป้องกัน เก็บรักษา ส่งคืนตัวอย่าง รวมทั้งมีระบบความสมบูรณ์ของตัวอย่าง ตลอดช่วงเวลาที่อยู่ในการทดสอบ มีการบันทึกลักษณะของตัวอย่างก่อนการทดสอบ</div>
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">{!! TextHelper::splitText('มีการจัดการการบันทึกทางด้านวิชาการได้อย่างเหมาะสมและเป็นไปตามข้อกำหนด') !!}</div>
+                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">มีการจัดการการบันทึกทางด้านวิชาการได้อย่างเหมาะสมและเป็นไปตามข้อกำหนด</div>
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">{!! TextHelper::splitText('มีการประเมินค่าความหนาแน่นของการวัด โดยชี้บ่งปัจจัยที่มีผลต่อค่าความไม่แน่นนอนของการวัด') !!}</div>
+                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">มีการประเมินค่าความหนาแน่นของการวัด โดยชี้บ่งปัจจัยที่มีผลต่อค่าความไม่แน่นนอนของการวัด</div>
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
@@ -267,18 +279,18 @@
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
                         <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">
-                            {!! TextHelper::splitText('มีการทบทวนและอนุมัติรายงานผลการทดลองของห้องปฏิบัติการก่อนส่งรายงาน รายงานผลจัดทำได้ถูกต้อง ไม่คลุมเครือ และตรงตามวัตถุประสงค์ตามข้อกำหนด โดยห้องปฏิบัติการจะรับผิดชอบข้อมูลต่างๆ ที่อยู่ใน รายงาน ยกเว้นข้อมูลที่จัดเตรียมโดยลูกค้า และ ชี้บ่งชัดเจนว่าเก็บข้อมูลจากลูกค้า') !!}
+                            มีการทบทวนและอนุมัติรายงานผลการทดลองของห้องปฏิบัติการก่อนส่งรายงาน รายงานผลจัดทำได้ถูกต้อง ไม่คลุมเครือ และตรงตามวัตถุประสงค์ตามข้อกำหนด โดยห้องปฏิบัติการจะรับผิดชอบข้อมูลต่างๆ ที่อยู่ใน รายงาน ยกเว้นข้อมูลที่จัดเตรียมโดยลูกค้า และ ชี้บ่งชัดเจนว่าเก็บข้อมูลจากลูกค้า
                             <div >
-                                <input type="checkbox" checked="checked" > {!! TextHelper::splitText('กรณีระบุความเป็นไปตามข้อกำหนดหรือมาตรฐานและเกณฑ์ตัดสิน (decision rule) มีเอกสารเกี่ยวกับ เกณฑ์ตัดสินที่ใช้อย่างเหมาะสม และรายงานมีการระบุ การเป็นไปตามข้อกำหนดอย่างชัดเจนและเป็นไปตามข้อกำหนด') !!}
+                                <input type="checkbox" checked="checked" > กรณีระบุความเป็นไปตามข้อกำหนดหรือมาตรฐานและเกณฑ์ตัดสิน (decision rule) มีเอกสารเกี่ยวกับ เกณฑ์ตัดสินที่ใช้อย่างเหมาะสม และรายงานมีการระบุ การเป็นไปตามข้อกำหนดอย่างชัดเจนและเป็นไปตามข้อกำหนด
                             </div>
                             <div >
                                 <input type="checkbox" checked="checked" > มีกระบวนการจัดการข้อร้องเรียนที่เหมาะสม ปีที่ผ่านมามีข้อร้องเรียนจำนวน 0 รายการ
                             </div>
                             <div >
-                                <input type="checkbox" checked="checked" > {!! TextHelper::splitText('มีขั้นตอนการดำเนินงานสำหรับงานที่เป็นไปตามที่ข้อกำหนด ได้อย่างเหมาะสม ปีที่ผ่านมามีงานที่ ไม่เป็นไปตามข้อกำหนด จำนวน 0 รายการ') !!}
+                                <input type="checkbox" checked="checked" > มีขั้นตอนการดำเนินงานสำหรับงานที่เป็นไปตามที่ข้อกำหนด ได้อย่างเหมาะสม ปีที่ผ่านมามีงานที่ ไม่เป็นไปตามข้อกำหนด จำนวน 0 รายการ
                             </div>
                             <div >
-                                <input type="checkbox" checked="checked" > {!! TextHelper::splitText('มีการควบคุมข้อมูลและการจัดการระบบสารสนเทศที่จำเป็นต่อการปฏิบัติกิจกรรมต่างๆ ของห้องปฏิบัติการ ได้อย่างเหมาะสม') !!}
+                                <input type="checkbox" checked="checked" > มีการควบคุมข้อมูลและการจัดการระบบสารสนเทศที่จำเป็นต่อการปฏิบัติกิจกรรมต่างๆ ของห้องปฏิบัติการ ได้อย่างเหมาะสม
                             </div>
                             <div >
                                 <input type="checkbox" checked="checked" > การคำนวณและการถ่ายโอนข้อมูลได้รับการตรวจสอบอย่างเหมาะสมและเป็นระบบ
@@ -313,35 +325,35 @@
                     </div>
                     <div>
                     <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                    <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">{!! TextHelper::splitText('มีการกำหนดนโยบายเกี่ยวกับระบบบริหารงานคุณภาพไว้เป็นเอกสาร ครอบคลุมถึงความสามารถ ความเป็นกลาง และการปฏิบัติงานอย่างสม่ำเสมอ และสามารถนำไปปฏิบัติได้อย่างมีประสิทธิภาพ') !!}</div>
+                    <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">มีการกำหนดนโยบายเกี่ยวกับระบบบริหารงานคุณภาพไว้เป็นเอกสาร ครอบคลุมถึงความสามารถ ความเป็นกลาง และการปฏิบัติงานอย่างสม่ำเสมอ และสามารถนำไปปฏิบัติได้อย่างมีประสิทธิภาพ</div>
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">{!! TextHelper::splitText('มีการควบคุมเอกสารระบบการบริหารงานทั้งภายในและภายนอกอย่างเหมาะสม และเป็นไปตามข้อกำหนด') !!}</div>
+                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">มีการควบคุมเอกสารระบบการบริหารงานทั้งภายในและภายนอกอย่างเหมาะสม และเป็นไปตามข้อกำหนด</div>
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">{!! TextHelper::splitText('มีการพิจารณาจัดการความเสี่ยงและโอกาสที่เกี่ยวข้องกับกิจกรรมของห้องปฏิบัติการซึ่งเป็นสัดส่วนกับ ผลกระทบที่อาจเกิดขึ้น โดยมีการวางแผนการปฏิบัติการและมีวิธีการเพื่อบูรณาการและนำปฏิบิตการไปใช้ในระบบการบริหารงานและการประเมินประสิทธิผลของการปฏิบัติการ') !!}</div>
+                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">มีการพิจารณาจัดการความเสี่ยงและโอกาสที่เกี่ยวข้องกับกิจกรรมของห้องปฏิบัติการซึ่งเป็นสัดส่วนกับ ผลกระทบที่อาจเกิดขึ้น โดยมีการวางแผนการปฏิบัติการและมีวิธีการเพื่อบูรณาการและนำปฏิบิตการไปใช้ในระบบการบริหารงานและการประเมินประสิทธิผลของการปฏิบัติการ</div>
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">{!! TextHelper::splitText('มีการปฏิบัติการเพื่อจัดการความเสี่ยงและโอกาส') !!}</div>
+                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">มีการปฏิบัติการเพื่อจัดการความเสี่ยงและโอกาส</div>
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">{!! TextHelper::splitText('มีการระบุและเลือกโอกาสในการปรับปรุงและนำไปใช้ปฏิบัติ รวมถึงมีการแสวงหา feedback ทั้งทางบวก และทางลบจากลูกค้าและนำไปวิเคราะห์และใช้ในการปรับปรุงระบบการบริหารงาน กิจกรรมต่างๆ ของปฏิบัติการ และการบริการลูกค้า') !!}</div>
+                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">มีการระบุและเลือกโอกาสในการปรับปรุงและนำไปใช้ปฏิบัติ รวมถึงมีการแสวงหา feedback ทั้งทางบวก และทางลบจากลูกค้าและนำไปวิเคราะห์และใช้ในการปรับปรุงระบบการบริหารงาน กิจกรรมต่างๆ ของปฏิบัติการ และการบริการลูกค้า</div>
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px;">{!! TextHelper::splitText('กรณีมีงานที่ไม่เป็นไปตามข้อกำหนดมีการตอบสนองและดำเนินการเพื่อปฏิบัติการควบคุมแก้ไข และ/หรือทบทวนประสิทธิผลของการแก้ไข ปรับความเสี่ยงและโอกาสให้เป็นปัจจุบัน รวมถึงการเปลี่ยนแปลงระบบการบริหารเมื่อมีผลกระทบ') !!}</div>
+                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px;">กรณีมีงานที่ไม่เป็นไปตามข้อกำหนดมีการตอบสนองและดำเนินการเพื่อปฏิบัติการควบคุมแก้ไข และ/หรือทบทวนประสิทธิผลของการแก้ไข ปรับความเสี่ยงและโอกาสให้เป็นปัจจุบัน รวมถึงการเปลี่ยนแปลงระบบการบริหารเมื่อมีผลกระทบ</div>
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">{!! TextHelper::splitText('มีการกำหนดแผนการตรวจติดตามคุณภาพภายในปีละ 1 ครั้ง ดำเนินการตรวจติดตามคุณภาพ ภายในครั้งล่าสุด เมื่อวันที่ 7-8 ธันวาคม 2566 พบข้อบกพร่องจำนวน 0 รายการ โดยมีการวางแผนและตรวจติดตามคุณภาพเป็นไปตามที่กำหนด') !!}</div>
+                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">มีการกำหนดแผนการตรวจติดตามคุณภาพภายในปีละ 1 ครั้ง ดำเนินการตรวจติดตามคุณภาพ ภายในครั้งล่าสุด เมื่อวันที่ 7-8 ธันวาคม 2566 พบข้อบกพร่องจำนวน 0 รายการ โดยมีการวางแผนและตรวจติดตามคุณภาพเป็นไปตามที่กำหนด</div>
                     </div>
                     <div>
                         <div style="display: inline-block;float:left;width:3%"><input type="checkbox" checked="checked" ></div>
-                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">{!! TextHelper::splitText('มีการกำหนดแผนการทบทวนการบริหารอย่างน้อยปีละ 1 ครั้ง ดำเนินการประชุมทบทวนการ บริหารครั้งล่าสุดเมื่่อวันที่ 9 ธันวาคม 2566 โดยมีการทบทวนการบริหาร เป็นไปตามที่กำหนดครอบคลุมทุกกิจกรรมการทดสอบ') !!}</div>
+                        <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:5px">มีการกำหนดแผนการทบทวนการบริหารอย่างน้อยปีละ 1 ครั้ง ดำเนินการประชุมทบทวนการ บริหารครั้งล่าสุดเมื่่อวันที่ 9 ธันวาคม 2566 โดยมีการทบทวนการบริหาร เป็นไปตามที่กำหนดครอบคลุมทุกกิจกรรมการทดสอบ</div>
                     </div>
                 </div>
             </div>  
@@ -391,8 +403,8 @@
                     </div>
                     <div style="margin-left: 55px">
                         <div style="display: inline-block;float:left;width:35%">
-                            <div style="display: inline-block;float:left;width:3%"><input type="checkbox" ></div>
-                            <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:15px">ถูกต้อง</div>
+                            <div style="display: inline-block;float:left;width:10%"><input type="checkbox" ></div>
+                            <div style="display: inline-block;float:left;width:85%;padding-top:-5px;margin-left:5px">ถูกต้อง</div>
                         </div>
                         <div style="display: inline-block;float:left;width:60%">
                             <div style="display: inline-block;float:left;width:3%"><input type="checkbox" ></div>
@@ -431,8 +443,8 @@
                     </div>
                     <div style="margin-left: 55px">
                         <div style="display: inline-block;float:left;width:35%">
-                            <div style="display: inline-block;float:left;width:3%"><input type="checkbox" ></div>
-                            <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:15px">ถูกต้อง</div>
+                            <div style="display: inline-block;float:left;width:10%"><input type="checkbox" ></div>
+                            <div style="display: inline-block;float:left;width:55%;padding-top:-5px;margin-left:5px">ถูกต้อง</div>
                         </div>
                         <div style="display: inline-block;float:left;width:60%">
                             <div style="display: inline-block;float:left;width:3%"><input type="checkbox" ></div>
@@ -447,8 +459,8 @@
                 <div style="display: inline-block;margin-left:22px; width:100%; float:left">
                     <div style="margin-left: 55px">
                         <div style="display: inline-block;float:left;width:35%">
-                            <div style="display: inline-block;float:left;width:3%"><input type="checkbox" ></div>
-                            <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:15px">ถูกต้อง</div>
+                            <div style="display: inline-block;float:left;width:10%"><input type="checkbox" ></div>
+                            <div style="display: inline-block;float:left;width:85%;padding-top:-5px;margin-left:5px">ถูกต้อง</div>
                         </div>
                         <div style="display: inline-block;float:left;width:60%">
                             <div style="display: inline-block;float:left;width:3%"><input type="checkbox" ></div>
@@ -474,8 +486,8 @@
                     </div>
                     <div style="margin-left: 55px">
                         <div style="display: inline-block;float:left;width:35%">
-                            <div style="display: inline-block;float:left;width:3%"><input type="checkbox" ></div>
-                            <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:15px">ถูกต้อง</div>
+                            <div style="display: inline-block;float:left;width:10%"><input type="checkbox" ></div>
+                            <div style="display: inline-block;float:left;width:85%;padding-top:-5px;margin-left:5px">ถูกต้อง</div>
                         </div>
                         <div style="display: inline-block;float:left;width:60%">
                             <div style="display: inline-block;float:left;width:3%"><input type="checkbox" ></div>
@@ -518,8 +530,8 @@
                     </div>
                     <div style="margin-left: 55px">
                         <div style="display: inline-block;float:left;width:35%">
-                            <div style="display: inline-block;float:left;width:3%"><input type="checkbox" ></div>
-                            <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:15px">ถูกต้อง</div>
+                            <div style="display: inline-block;float:left;width:10%"><input type="checkbox" ></div>
+                            <div style="display: inline-block;float:left;width:85%;padding-top:-5px;margin-left:5px">ถูกต้อง</div>
                         </div>
                         <div style="display: inline-block;float:left;width:60%">
                             <div style="display: inline-block;float:left;width:3%"><input type="checkbox" ></div>
@@ -544,8 +556,8 @@
                     </div>
                     <div style="margin-left: 55px">
                         <div style="display: inline-block;float:left;width:35%">
-                            <div style="display: inline-block;float:left;width:3%"><input type="checkbox" ></div>
-                            <div style="display: inline-block;float:left;width:95%;padding-top:-5px;margin-left:15px">ถูกต้อง</div>
+                            <div style="display: inline-block;float:left;width:10%"><input type="checkbox" ></div>
+                            <div style="display: inline-block;float:left;width:85%;padding-top:-5px;margin-left:5px">ถูกต้อง</div>
                         </div>
                         <div style="display: inline-block;float:left;width:60%">
                             <div style="display: inline-block;float:left;width:3%"><input type="checkbox" ></div>
@@ -562,40 +574,16 @@
 
     </div>
 
-
-<div class="topic_three">
-    <div style="margin-left: 20px ;font-weight:bold"><span>(3) สรุปผลการตรวจประเมิน</span> </div>
-    <div style="margin-left:37px"> 
-        <div style="display: inline-block; width:100%; float:left;font-weight:bold"><input type="checkbox" checked="checked" > พบข้อบกพร่อง ทั้งสิ้นจำนวน 11 รายการ ดังสำเนารายงานข้อบกพร่องที่แนบ</div>
-        <div style="display: inline-block; width:100%; float:left; margin-left: 25px"> ห้องปฎิบัติการต้องส่งแนวทาง และแผนการดำเนินการปฏิบัติการแก้ไขข้อบกพร่อง ให้สำนักงานพิจารณา ภายใน 30 วันนับจากวันที่ได้รับรายงานข้อบกพร่อง และเมื่อครบกำหนดการแก้ไขข้อบกพร่องตามระยะเวลาที่ตกลงกันไว้ ห้องปฏิบัติการต้องส่งหลักฐานการแก้ไขข้อบกพร่องอย่างมีประสิทธิผลให้คณะผู้ตรวจประเมินพิจารณา ณ สำนักงาน ภายในวันที่ 4 กรกฎาคม 2567 (ภายใน 90 วัน นับจากวันที่ได้รับทราบรายงานข้อบกพร่อง)</div>
-        <div style="display: inline-block; width:100%; float:left; margin-left: 25px"> หากห้องปฏิบัติการไม่สามารถดำเนินการแก้ไขข้อบกพร่องทั้งหมดได้อย่างมีประสิทธิผลภายในระยะเวลาที่ กำหนดข้างต้น คณะผู้ตรวจประเมินจะนำเสนอให้สำนักงานพิจารณายกเลิกคำขอรับบริการยืนยันความสามารถห้องปฏิบัติการของท่านต่อไป</div>
-        <div style="display: inline-block; width:100%; float:left; margin-left: 25px"> กรณีห้องปฏิบัติการสามารถดำเนินการแก้ไขข้อบกพร่องทั้งหมดได้แล้วเสร็จสอดคล้องตาม มาตรฐานเลขที่ มอก.17025-2561 คณะผู้ตรวจประเมินจะนำเสนอคระอนุกรรมการพิจารณารับรองห้องปฏิบัติการ 1 เพื่อพิจารณาให้การรับรองต่อไป</div>
-        <div style="display: inline-block; width:100%; float:left"><input type="checkbox" checked="checked" > ห้องปฏิบัติการมีระบบการบริหารงานและการดำเนินงานด้านวิชาการเป็นไปตามมาตรฐานเลขที่ มอก.17025-2561 ในของข่ายที่ขอรับการรับรอง คณะผู้ตรวจประเมินเห็นควรนำเสนอคณะอนุกรรมการพิจารณา รับรองห้องปฏิบัติการ 1 เพื่อพิจารณาให้การรับรองต่อไป</div>
-    </div>  
-</div>
-
-<div class="sign_area" style="margin-top: 70px">
-    <div style="display: block;width:60%;text-align:center;float:right">
-        (.............................................) <br>
-        หัวหน้าคณะผู้ตรวจประเมิน <br>
-        วันที่ .............................................................. <br>
+    <div class="topic_three">
+        <div style="margin-left: 20px ;font-weight:bold"><span>(3) สรุปผลการตรวจประเมิน</span> </div>
+        <div style="margin-left:37px"> 
+            <div style="display: inline-block; width:100%; float:left;font-weight:bold"><input type="checkbox" checked="checked" > พบข้อบกพร่อง ทั้งสิ้นจำนวน 11 รายการ ดังสำเนารายงานข้อบกพร่องที่แนบ</div>
+            <div style="display: inline-block; width:100%; float:left; margin-left: 25px"> ห้องปฎิบัติการต้องส่งแนวทาง และแผนการดำเนินการปฏิบัติการแก้ไขข้อบกพร่อง ให้สำนักงานพิจารณา ภายใน 30 วันนับจากวันที่ได้รับรายงานข้อบกพร่อง และเมื่อครบกำหนดการแก้ไขข้อบกพร่องตามระยะเวลาที่ตกลงกันไว้ ห้องปฏิบัติการต้องส่งหลักฐานการแก้ไขข้อบกพร่องอย่างมีประสิทธิผลให้คณะผู้ตรวจประเมินพิจารณา ณ สำนักงาน ภายในวันที่ 4 กรกฎาคม 2567 (ภายใน 90 วัน นับจากวันที่ได้รับทราบรายงานข้อบกพร่อง)</div>
+            <div style="display: inline-block; width:100%; float:left; margin-left: 25px"> หากห้องปฏิบัติการไม่สามารถดำเนินการแก้ไขข้อบกพร่องทั้งหมดได้อย่างมีประสิทธิผลภายในระยะเวลาที่ กำหนดข้างต้น คณะผู้ตรวจประเมินจะนำเสนอให้สำนักงานพิจารณายกเลิกคำขอรับบริการยืนยันความสามารถห้องปฏิบัติการของท่านต่อไป</div>
+            <div style="display: inline-block; width:100%; float:left; margin-left: 25px"> กรณีห้องปฏิบัติการสามารถดำเนินการแก้ไขข้อบกพร่องทั้งหมดได้แล้วเสร็จสอดคล้องตาม มาตรฐานเลขที่ มอก.17025-2561 คณะผู้ตรวจประเมินจะนำเสนอคระอนุกรรมการพิจารณารับรองห้องปฏิบัติการ 1 เพื่อพิจารณาให้การรับรองต่อไป</div>
+            <div style="display: inline-block; width:100%; float:left"><input type="checkbox" checked="checked" > ห้องปฏิบัติการมีระบบการบริหารงานและการดำเนินงานด้านวิชาการเป็นไปตามมาตรฐานเลขที่ มอก.17025-2561 ในของข่ายที่ขอรับการรับรอง คณะผู้ตรวจประเมินเห็นควรนำเสนอคณะอนุกรรมการพิจารณา รับรองห้องปฏิบัติการ 1 เพื่อพิจารณาให้การรับรองต่อไป</div>
+        </div>  
     </div>
-</div>
-
-<div class="sign_area">
-    <div style="display: block;width:60%;text-align:center;float:right">
-        (.............................................) <br>
-        นักวิชาการมาตรฐานชำนาญการพิเศษ<br>
-        วันที่ .............................................................. <br>
-    </div>
-</div>
-
-<div class="sign_area">
-    <div style="display: block;width:60%;text-align:center;float:right">
-        (.............................................) <br>
-        ผู้อำนวยการสำนักงานมาตรฐานคณะกรรมการการมาตรฐานแห่งชาติ <br>
-        วันที่ .............................................................. <br>
-    </div>
-</div>
 
 </body>
+</html>

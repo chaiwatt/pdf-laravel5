@@ -27,6 +27,7 @@ Route::get('/pdf/add-sign', 'Bis50Controller@addSign')->name('pdf.add-sign');
 Route::get('/pdf/add-sign-verify', 'Bis50Controller@addSignVerify')->name('pdf.add-sign-verify');
 
 Route::get('/pdf/labreport', 'LabReportController@labreport')->name('pdf.labreport');
+Route::get('/pdf/raw-labreport', 'LabReportController@rawLabreport')->name('pdf.raw-labreport');
 
 Route::get('/gen-word', 'LabReportController@genWord')->name('gen-word');
 

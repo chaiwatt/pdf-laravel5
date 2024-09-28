@@ -218,15 +218,29 @@ body {
         margin-top: 10px
     }
 
-    .lab-header .topic_one{
+    .topic_one{
         display: inline;
         width: 100%;
     
     }
-    .lab-header .topic_two{
+    .topic_two{
         display: inline;
         width: 100%;
       
+    }
+
+    .topic_three{
+        display: inline;
+        width: 100%;
+      
+    }
+
+    .sign_area
+    {
+        margin-top: 40px;
+        display: block;
+        text-align: right;
+        width: 100%;
     }
 
     .lab-header .info{

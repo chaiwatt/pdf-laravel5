@@ -55,6 +55,11 @@ class LabReportController extends Controller
                                                     
     }
 
+    public function rawLabreport()
+    {
+        return view('pdf.labreport.raw-report');
+    }
+
     public function genWord()
     {
         $wordtemplate = new TemplateProcessor(public_path('assets/template.docx'));
